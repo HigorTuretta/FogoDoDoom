@@ -4,12 +4,12 @@ const fireHeight = 45
 const fireColorsPallete =  ['rgb(7, 7, 7)', 'rgb(31, 7, 7)', 'rgb(47, 15, 7)', 'rgb(71, 15, 7)', 'rgb(87, 23, 7)', 'rgb(103, 31, 7)', 'rgb(119, 31, 7)', 'rgb(143, 39, 7)', 'rgb(159, 47, 7)', 'rgb(175, 63, 7)', 'rgb(191, 71, 7)', 'rgb(199, 71, 7)', 'rgb(223, 79, 7)', 'rgb(223, 87, 7)', 'rgb(223, 87, 7)', 'rgb(215, 95, 7)', 'rgb(215, 95, 7)', 'rgb(215, 103, 15)', 'rgb(207, 111, 15)', 'rgb(207, 119, 15)', 'rgb(207, 127, 15)', 'rgb(207, 135, 23)', 'rgb(199, 135, 23)', 'rgb(199, 143, 23)', 'rgb(199, 151, 31)', 'rgb(191, 159, 31)', 'rgb(191, 159, 31)', 'rgb(191, 167, 39)', 'rgb(191, 167, 39)', 'rgb(191, 175, 47)', 'rgb(183, 175, 47)', 'rgb(183, 183, 47)', 'rgb(183, 183, 55)', 'rgb(207, 207, 111)', 'rgb(223, 223, 159)', 'rgb(239, 239, 199)', 'rgb(255, 255, 255)']
 const controlRange = document.getElementById('range')
 const sound = document.getElementById('som');
-let rangeValue = 4
+let rangeValue = 0.5
 sound.loop = true
 
 controlRange.addEventListener('input', (evt) =>{
     rangeValue = evt.target.value
-    if(rangeValue > 5 ){
+    if(rangeValue > 0.5 ){
         sound.volume -= 0.1;
     }else{
         sound.volume += 0.1;
@@ -21,6 +21,7 @@ function start() {
     createFireSource();
     renderFire();
     setInterval(calculateFirePropagation, 50);
+    sound.play();
     sound.volume = 0.5;
 
 }
