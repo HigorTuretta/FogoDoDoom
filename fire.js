@@ -21,7 +21,6 @@ function start() {
     createFireDataStructure();
     createFireSource();
     renderFire();
-    sound.play();
     setInterval(calculateFirePropagation, 50);
 
 }
