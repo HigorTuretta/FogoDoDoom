@@ -21,7 +21,6 @@ function start() {
     createFireSource();
     renderFire();
     setInterval(calculateFirePropagation, 50);
-    sound.play();
     sound.volume = 0.5;
 
 }
@@ -50,7 +49,7 @@ function updateFireIntensityPerPixel(currentPixelIndex){
     if(belowPixelIndex > fireWidth * fireHeight){
         return
     }
-    const decay = Math.floor(Math.random() * rangeValue )
+    const decay = Math.floor(Math.random() * (rangeValue * 400) )
     const belowPixelFireIntensity = firePixelArray[belowPixelIndex] 
     const newFireIntenisty = belowPixelFireIntensity - decay  >= 0 ? belowPixelFireIntensity - decay : 0
 
