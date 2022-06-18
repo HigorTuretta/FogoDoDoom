@@ -9,9 +9,8 @@ sound.loop = true
 
 controlRange.addEventListener('input', (evt) =>{
     rangeValue = evt.target.value
-
     if(rangeValue > 5 ){
-        sound.volume -= 0.09;
+        sound.volume -= 0.1;
     }else{
         sound.volume += 0.1;
     }
@@ -22,6 +21,7 @@ function start() {
     createFireSource();
     renderFire();
     setInterval(calculateFirePropagation, 50);
+    sound.volume = 0.5;
 
 }
 
@@ -93,4 +93,7 @@ function createFireSource() {
     }
 }
 
-start();
+window.onload = function() {
+    start();
+};
+
